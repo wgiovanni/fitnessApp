@@ -3,8 +3,24 @@ import React, { Component } from 'react';
 import circlesImg from '../images/circles.png';
 import './styles/Card.css';
 import 'bootstrap/dist/css/bootstrap.css';
+
+
 class Card extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: ''
+        }
+    }
+
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             image: ''
+    //         })
+    //     }, 5000);
+    // }
     render() {
         const { title, description, img, leftColor, rightColor} = this.props;
         return <div className="card mx-auto Fitness-Card"
