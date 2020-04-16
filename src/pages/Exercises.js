@@ -10,10 +10,23 @@ class Exercises extends Component {
     constructor(props)  {
         super(props);
         this.state = {
-            data: data
+            data: []
         }
     }
 
+    async componentDidMount() {
+        await this.fetchExercises()
+    }
+
+    fetchExercises = async () => {
+        let res = await fetch('http://localhost:8000/api/exercises')
+        let data = await res.json()
+
+        this.setState({
+            data
+        })
+        console.log(data);
+    }
     render() {
         return (<div>
             <Welcome 
