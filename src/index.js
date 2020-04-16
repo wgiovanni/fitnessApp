@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Exercises from './pages/Exercises';
+import App from './components/App';
 
 
-ReactDOM.render(<Exercises/>,
+ReactDOM.render(<App/>,
   document.getElementById('root')
 );
 
