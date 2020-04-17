@@ -44,13 +44,13 @@ class Exercises extends Component {
             return <Spinner/>
         if (this.state.error)
             return <FatalError/>
-        return (<div>
+        return (<>
             <Welcome 
                 username="Wilkel"
             />
             <ExercisesList exercises={this.state.data}/> 
             <AddButton/>           
-        </div>)
+        </>)
     } 
 }
 
