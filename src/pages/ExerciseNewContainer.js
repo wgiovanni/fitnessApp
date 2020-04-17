@@ -8,7 +8,7 @@ class ExerciseNewContainer extends React.Component {
         form: {
             title: '', 
             description: '', 
-            img: '', 
+            img: '',
             leftColor: '', 
             rightColor: ''
         },
