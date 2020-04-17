@@ -1,6 +1,7 @@
 import React from 'react';
 import ExerciseForm from '../components/ExerciseForm';
 import Card from '../components/Card';
+import '../components/styles/ExerciseNew.css';
 class ExercisesNew extends React.Component {
     state = {
         form: {
@@ -20,16 +21,40 @@ class ExercisesNew extends React.Component {
             }
         });
     }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        try {
+            let config = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state.form)
+            }
+
+            let res = await fetch('http://localhost:8000/api/exercises', config);
+            let json = await res.json();
+            console.log(json);
+
+        } catch (error) {
+            
+        }
+        
+    }
+
     render() {
 
         return (
-            <div className="row">
-                <div className="col-sm">
+            <div className="ExerciseNew_Lateral_Spaces row">
+                <div className="col-sm ExerciseNew_Card_Space">
                     <Card {...this.state.form}/>
                 </div>
-                <div className="col-sm">
+                <div className="col-sm ExerciseNew_Form_Space">
                     <ExerciseForm
                         onChange={this.handleChange}
+                        onSubmit={this.handleSubmit}
                         form={this.state.form}
                     />
                 </div>
