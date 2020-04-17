@@ -4,13 +4,18 @@ import Welcome from '../components/Welcome.js';
 import data from '../data.json';
 import ExercisesList from '../components/ExercisesList.js';
 import AddButton from '../components/AddButton.js';
+import Spinner from '../components/Spinner';
+import FatalError from './500';
+
 
 class Exercises extends Component {
 
     constructor(props)  {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            loading: true,
+            error: null
         }
     }
 
@@ -19,15 +24,27 @@ class Exercises extends Component {
     }
 
     fetchExercises = async () => {
-        let res = await fetch('http://localhost:8000/api/exercises')
-        let data = await res.json()
+        try {
+            let res = await fetch('http://localhost:8000/api/exercises')
+            let data = await res.json()
+    
+            this.setState({
+                data,
+                loading: false
+            })
+        } catch (error) {
+            this.setState({
+                loading: false,
+                error
+            })
+        }
 
-        this.setState({
-            data
-        })
-        console.log(data);
     }
     render() {
+        if (this.state.loading)
+            return <Spinner/>
+        if (this.state.error)
+            return <FatalError/>
         return (<div>
             <Welcome 
                 username="Wilkel"
