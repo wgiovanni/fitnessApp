@@ -3,11 +3,11 @@ import Card from './Card.js';
 
 const ExercisesList = ({exercises}) => (
     <>
-        {exercises.map((e) => {
+        {exercises.map((exercise) => {
             return (
                 <Card
-                    key={e.id}
-                    {...exercises}
+                    key={exercise.id}
+                    {...exercise}
                 />
             );
         })}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ExerciseForm = ({onChange, onSubmit, form}) => (
     <div className="container">
@@ -35,7 +36,7 @@ const ExerciseForm = ({onChange, onSubmit, form}) => (
                     value={form.img}
                 />
             </div>
-            <div className="form-row">
+            <div className="form-row form-group">
                 <div className="col">
                     <input 
                         type="text" 
@@ -57,13 +58,15 @@ const ExerciseForm = ({onChange, onSubmit, form}) => (
                     />    
                 </div>
             </div>
-            
-            <button 
-                type="submit" 
-                className="btn btn-primary"
-            >
-                Submit
-            </button>
+            <div className="form-group">
+                <Link className="btn btn-primary" to="/exercise">Regresar</Link>
+                <button 
+                    type="submit" 
+                    className="btn btn-primary float-right"
+                >
+                    Submit
+                </button>
+            </div>
         </form>
     </div>
 );

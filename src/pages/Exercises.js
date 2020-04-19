@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 
 import Welcome from '../components/Welcome.js';
 import ExercisesList from '../components/ExercisesList.js';
@@ -6,7 +6,7 @@ import AddButton from '../components/AddButton.js';
 
 
 const Exercises = ({data}) => (
-    <React.Fragment>
+    <Fragment>
         <Welcome 
                 username="Wilkel"
         />
@@ -14,7 +14,7 @@ const Exercises = ({data}) => (
             exercises={data}
         /> 
         <AddButton/>  
-    </React.Fragment>
+    </Fragment>
 );
 
 export default Exercises;

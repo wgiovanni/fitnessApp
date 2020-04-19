@@ -7,7 +7,6 @@ import URL from '../config';
 const ExercisesContainer = () => {
     
     const {data, loading, error} = useFetch(URL + '/exercises');
-
     if (loading)
         return <Spinner/>
     if (error)
