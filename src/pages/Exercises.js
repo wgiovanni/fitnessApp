@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-
 import Welcome from '../components/Welcome.js';
 import ExercisesList from '../components/ExercisesList.js';
 import AddButton from '../components/AddButton.js';
